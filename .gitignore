@@ -79,3 +79,8 @@ flycheck_*.el
 
 # projectiles files
 .projectile
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
