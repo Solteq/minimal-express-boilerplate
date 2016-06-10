@@ -1,5 +1,7 @@
 "use strict";
 
+const dogSay = require('./functions').dogSay;
+
 const appRouter = function(app) {
 
     /**
@@ -25,6 +27,12 @@ const appRouter = function(app) {
     app.get("/imalive", function(req, res) {
 
         res.json({"status": "OK"});
+
+    });
+
+    app.get("/dog", function(req, res) {
+
+        res.json(dogSay());
 
     });
 
