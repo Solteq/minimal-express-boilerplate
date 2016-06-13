@@ -58,7 +58,7 @@ Lets have a look at Cucumber testing via our beloved dog example.
 ### dog.features
 Lets create a dog.feature file for defining the very first scenario and save it under features directory:
 
-
+```
 Feature: This is an example dog feature
 	In order to learn Cucumber
 	As a developer
