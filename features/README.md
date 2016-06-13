@@ -58,7 +58,7 @@ Lets have a look at Cucumber testing via our beloved dog example.
 ### dog.features
 Lets create a dog.feature file for defining the very first scenario and save it under features directory:
 
-```
+
 Feature: This is an example dog feature
 	In order to learn Cucumber
 	As a developer
@@ -72,7 +72,7 @@ Feature: This is an example dog feature
 
 Grunt watcher should now kick in:
 
-´´´
+```
 Feature: This is an example dog feature
   In order to learn Cucumber
   As a developer
@@ -104,8 +104,7 @@ this.Then(/^dog should answer "([^"]*)"$/, function (arg1, callback) {
   // Write code here that turns the phrase above into concrete actions
   callback.pending();
 });
-
-´´´
+```
 
 Nice! One scenario with three steps recognized and there is also skeleton functions provided!
 
