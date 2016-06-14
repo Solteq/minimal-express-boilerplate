@@ -148,7 +148,7 @@ Again Grunt Watcher kicks in now stating:
 
 The scene of the scenario. When Cucumber executes a Given step it will configure the system to be in a well-defined state, such as creating and configuring objects or adding data to the test database.
 
-With stateless web services this is useless. I still wanted to violate this principle in this example by implementing given step that calls for a alive service.
+With stateless web services this is could be sometimes useless. I still wanted to violate this principle in this example by implementing given step that calls for a alive service.
 
 ```
 this.Given(/^a dog is alive$/, function (callback) {
@@ -218,7 +218,7 @@ callback.pending();
 
 I noticed this when I tried to run my tests first time with "grunt cucumber" command and skeletons were copy-pasted from cucumber-js output.
 
-For full Cucumber reference take a look at https://cucumber.io/docs/reference. My absolute favorite with Cucumber is scenario outlines. Then even test data will be decoupled from the test implementation and can be provided by the actual end users!
+For full Cucumber reference take a look at https://cucumber.io/docs/reference. My absolute favorite with Cucumber is scenario outlines. Then even the test data will be decoupled from the test implementation and can be provided by the actual end users!
 
 
 
