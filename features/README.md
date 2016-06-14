@@ -218,7 +218,9 @@ callback.pending();
 
 I noticed this when I tried to run my tests first time with "grunt cucumber" command and skeletons were copy-pasted from cucumber-js output.
 
-For full Cucumber reference take a look at https://cucumber.io/docs/reference. My absolute favorite with Cucumber is scenario outlines. Then even the test data will be decoupled from the test implementation and can be provided by the actual end users!
+For full Cucumber reference take a look at https://cucumber.io/docs/reference. My absolute favorite with Cucumber is scenario outlines. Then even the test data will be decoupled from the test implementation and can be provided by the actual end users
+
+I personally think that for pure functions BDD is overkill, for services it should be considered and for functional testing via selenium it is a must!
 
 
 
