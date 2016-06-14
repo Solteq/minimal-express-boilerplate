@@ -1,4 +1,4 @@
-#BDD in Javascript with CucumberJS
+# BDD in Javascript with CucumberJS
 
 CucumberJS is a JavaScript port of the popular BDD tool Cucumber (which itself was a rewrite of RSpec) which allows you to define Feature Specs in a Domain-Specific-Language (DSL) - called Gherkin - and run your specs!
 
@@ -144,6 +144,64 @@ Again Grunt Watcher kicks in now stating:
 3 steps (1 pending, 2 skipped)
 ```
 
+#### Given
+
+The scene of the scenario. When Cucumber executes a Given step it will configure the system to be in a well-defined state, such as creating and configuring objects or adding data to the test database.
+
+With stateless web services this is useless. I still wanted to violate this principle in this example by implementing given step that calls for a alive service.
+
+```
+this.Given(/^a dog is alive$/, function (callback) {
+	supertest(app)
+		.get("/imalive")
+		.expect("Content-Type",/json/)
+		.expect(200)
+		.end(function(err,res){
+			res.status.should.equal(200);
+			callback();
+	});
+});
+```
+
+#### When
+
+When steps are used to describe an event, or an action. This can be a person interacting with the system, or it can be an event triggered by another system.
+
+It's strongly recommended you only have a single When step per scenario. If you feel compelled to add more it's usually a sign that you should split the scenario up in multiple scenarios.
+
+```
+var answer;
+
+this.When(/^I call for a dog$/, function (callback) {
+	supertest(app)
+		.get("/dog")
+		.expect("Content-Type",/json/)
+		.expect(200)
+		.end(function(err,res){
+			answer = res.body;
+			callback();
+	});
+});
+```
+#### Then
+
+Then steps are used to describe an expected outcome, or result.
+
+Then step should use an assertion to compare the actual outcome (what the system actually does) to the expected outcome (what the step says the system is supposed to do).
+
+```
+this.Then(/^dog should answer "([^"]*)"$/, function (arg1, callback) {
+	answer.should.equal(arg1);
+	callback();
+});
+```
+
+#### Background
+
+Occasionally you'll find yourself repeating the same Given steps in all of the scenarios in a feature file. Since it is repeated in every scenario it is an indication that those steps are not essential to describe the scenarios, they are incidental details.
+
+For example for all our dog services it could be essential that the dog is alive!
+
 ## Misc
 
 I noticed that vanilla cucumber.js and grunt-cucumber js does use slight difference in steps syntax for pending test implementations:
@@ -159,6 +217,8 @@ callback.pending();
 ```
 
 I noticed this when I tried to run my tests first time with "grunt cucumber" command and skeletons were copy-pasted from cucumber-js output.
+
+For full Cucumber reference take a look at https://cucumber.io/docs/reference. My absolute favorite with Cucumber is scenario outlines. Then even test data will be decoupled from the test implementation and can be provided by the actual end users!
 
 
 
