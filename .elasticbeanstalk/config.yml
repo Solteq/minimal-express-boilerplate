@@ -1,0 +1,13 @@
+branch-defaults:
+  master:
+    environment: minimal-express-boiler
+    group_suffix: null
+deploy:
+  artifact: Dockerrun.aws.json
+global:
+  application_name: minimal-express-boilerplate
+  default_ec2_keyname: valtteriaws
+  default_platform: Docker 1.9.1
+  default_region: eu-west-1
+  profile: null
+  sc: git
