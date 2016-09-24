@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: minimal-express-boiler
+    environment: solteq-minimal-express-boilerplate-dev
     group_suffix: null
 deploy:
   artifact: Dockerrun.aws.json
